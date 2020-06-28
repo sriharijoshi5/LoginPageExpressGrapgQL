@@ -14,11 +14,13 @@ type File {
     _id: ID
     name: String!
     uploader: User!
+
 }
 
 type RootQuery {
     files: [File!]!
 }
+
 
 input FileInput {
     name: String!

@@ -3,6 +3,7 @@ const User = require('../../models/user');
 const bcrypt = require('bcryptjs');
 
 const files = fileIds => {
+
     return File.find({ _id: {$in: fileIds}}).then(
                 files =>
                 {
@@ -41,16 +42,20 @@ module.exports = {
         })}).catch(err => {
             throw err;
         });
+
     },
     createFile: (args) => {
         const file = new File({
             name: args.fileInput.name,
+
             uploader: '5ef901a7631cdd87e40b2fe5'
+
         });
         let uploadedFile;
         return file
             .save()
             .then(result => {
+
                 uploadedFile =   { ...result._doc,
                      _id: result._doc._id.toString()  };;
                 return User.findById('5ef901a7631cdd87e40b2fe5')
@@ -63,6 +68,7 @@ module.exports = {
                 {user.uploadedFiles.push(file)
                 return user.save();}
             }).then(result=>{
+
                 return uploadedFile;
             }).catch(err => {
                 console.log(err);
@@ -89,6 +95,7 @@ module.exports = {
         ).then(result => {
             return { ...result._doc, password: null, _id: result.id }
         })
+
             .catch(err => {
                 throw err;
             }
@@ -96,3 +103,4 @@ module.exports = {
 
     }
 };
+
