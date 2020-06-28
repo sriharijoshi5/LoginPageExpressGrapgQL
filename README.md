@@ -4,3 +4,4 @@ Set-up:
 3. npm install --save-dev nodemon
 4. npm install --save express-graphql graphql
 5. npm install --save mongoose
+6. npm install --save bcryptjs

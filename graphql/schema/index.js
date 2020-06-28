@@ -1,15 +1,7 @@
 const { buildSchema } = require('graphql');
 
-module.exports = buildSchema(`
-type File {
-    _id: ID
-    name: String!
-    uploaderr: User!
-}
+module.exports =  buildSchema(`
 
-type RootQuery {
-    files: [File!]!
-}
 
 type User {
     _id: ID!
@@ -17,6 +9,18 @@ type User {
     password: String
     uploadedFiles: [File!]
 }
+
+type File {
+    _id: ID
+    name: String!
+    uploader: User!
+
+}
+
+type RootQuery {
+    files: [File!]!
+}
+
 
 input FileInput {
     name: String!
