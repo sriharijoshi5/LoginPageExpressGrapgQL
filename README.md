@@ -5,3 +5,4 @@ Set-up:
 4. npm install --save express-graphql graphql
 5. npm install --save mongoose
 6. npm install --save bcryptjs
+7. npm install --save jsonwebtoken

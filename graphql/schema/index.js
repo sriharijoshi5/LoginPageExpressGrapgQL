@@ -17,10 +17,17 @@ type File {
 
 }
 
+
 type RootQuery {
     files: [File!]!
+    login(email: String!, password: String!): AuthData!
 }
 
+type AuthData {
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+}
 
 input FileInput {
     name: String!
